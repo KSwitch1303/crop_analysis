@@ -51,7 +51,7 @@ const Home = () => {
   },[search])
   return ( 
     <div className="home">
-      <h1>CROP DISEASE PREVENTION SYSTEM </h1>
+      <h1>CROP DISEASE MANAGEMENT SYSTEM</h1>
       <div className="homeheader">
         <select className='select' disabled={isPending} value={searchCriteria} onChange={(e) => setSearchCriteria(e.target.value)}>
           <option disabled value="">Select Search criteria</option>
