@@ -9,10 +9,11 @@ const Home = () => {
   const [selectedOption, setSelectedOption] = useState('')
   const [renderData, setRenderData] = useState([])
   const [render, setRender] = useState(false)
+  const apiUrl = process.env.REACT_APP_API_URL
 
   const getSearch = async () => {
     setIsPending(true)
-    const res = await axios.get(`http://localhost:5000/get${searchCriteria}names`)
+    const res = await axios.get(`${apiUrl}/get${searchCriteria}names`)
     setData(res.data)
     // console.log(data)
     setIsPending(false)
@@ -20,14 +21,14 @@ const Home = () => {
   const getCrop = async () => {
     // setIsPending(true)
     // alert(`http://localhost:5000/getcrop/${search}`)
-    const res = await axios.get(`http://localhost:5000/getcrop/${search}`)
+    const res = await axios.get(`${apiUrl}/getcrop/${search}`)
     // remove duplicates
     const unique = [...new Set(res.data)]
     setRenderData(unique)
     // setIsPending(false)
   }
   const getSymptoms = async () => {
-    const res = await axios.get(`http://localhost:5000/getsymptoms/${search}`)
+    const res = await axios.get(`${apiUrl}/getsymptoms/${search}`)
     // remove duplicates
     const unique = [...new Set(res.data)]
     setRenderData(unique)
